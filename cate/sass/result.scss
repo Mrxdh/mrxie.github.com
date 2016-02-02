@@ -1,0 +1,362 @@
+$result_header1_color: rgb(218, 135, 134);
+
+.result-container {
+  @include page-header(-786px, -690px);
+  > header {
+    left: 0;
+  }
+}
+
+.result-type,
+.result-info,
+.result-finish,
+.result-coupon,
+.result-invoice,
+.result-address {
+  @include horizontal-page-width();
+}
+
+.result-type,
+.result-info,
+.result-coupon,
+.result-invoice,
+.result-address {
+  margin-top: 5px;
+  position: relative;
+  background-color: #ffffff;
+  header {
+    height: 18px;
+    padding: 5px;
+    overflow: hidden;
+    line-height: 18px;
+    position: relative;
+    background-color: #ddd;
+    h2 {
+      font-size: 1.2em;
+      margin-left: 10px;
+    }
+    &:after {
+      @extend .container;
+    }
+  }
+}
+
+.result-address {
+  margin-top: 100px;
+  header h2,
+  header > div {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  header > div {
+    right: 30px;
+    position: absolute;
+    color: $result_header1_color;
+  }
+  header {
+    span {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      vertical-align: middle;
+      @include default_bgimg("../images/background-1.png", -115px -84px);
+    }
+  }
+}
+
+.result-address-other {
+  padding: 5px 5px 0 5px;
+}
+
+.result-time,
+.result-type-money,
+.result-address-from {
+  margin: 5px;
+  overflow: hidden;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  h2 {
+    height: 100%;
+    font-size: 1.1em;
+    margin: 4px 0 0 15px;
+    display: inline-block;
+    color: $result_header1_color;
+    span {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      vertical-align: middle;
+      @include default_bgimg("../images/background-1.png", 5px -80px);
+    }
+  }
+  h2, ul {
+    float: left;
+  }
+  ul {
+    width: 850px;
+    margin-left: 30px;
+  }
+  li {
+    overflow: hidden;
+    line-height: 25px;
+    position: relative;
+    span {
+      width: 440px;
+      color: #B6AEAE;
+      margin-left: 30px;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+.result-address-from {
+  li {
+    input, span, h3, strong {
+      float: left;
+      font-size: $default_font_size1;
+      vertical-align: middle;
+    }
+    input {
+      @include element_vertical_middle();
+      right: auto;
+      left: 5px;
+    }
+    h3 {
+      width: 110px;
+      cursor: pointer;
+      text-align: right;
+      color: $result_header1_color;
+    }
+    strong {
+      float: right;
+      cursor: pointer;
+      margin-right: 25px;
+      color: $result_header1_color;
+    }
+  }
+  &:after, h2, ul {
+    @extend .container;
+  }
+}
+
+.result-money-select,
+.result-address-select {
+  span {
+    color: #000 !important;
+    font-size: 1.3em !important;
+  }
+  h3 {
+    color: #B6AEAE !important;
+  }
+}
+
+.result-address-other {
+  height: 50px;
+  border-bottom: 1px solid #eee;
+  h3 {
+    cursor: pointer;
+    margin-left: 100px;
+    display: inline-block;
+    color: $result_header1_color;
+  }
+}
+
+.result-type {
+
+}
+
+.result-time,
+.result-type-money {
+  ul {
+    width: 800px;
+    margin-left: 20px;
+  }
+  li {
+    span {
+      margin-left: 10px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    textarea {
+      width: 411px;
+      height: 58px;
+    }
+  }
+}
+
+.result-info {
+  header {
+    h2 {
+      display: inline-block;
+    }
+    h2, ul {
+      float: left;
+    }
+  }
+}
+
+.result-info-ul {
+  li {
+    height: 95px;
+    padding: 0 20px;
+  }
+}
+
+.result-info {
+  header {
+    ul {
+      margin-left: 255px;
+    }
+    &:after, span, input, ul {
+      @extend .container;
+    }
+  }
+
+  footer {
+    height: auto;
+    text-align: right;
+    position: relative;
+    h3 {
+      right: 130px;
+      width: 500px;
+      font-size: 1.6em;
+      font-weight: bold;
+      line-height: 60px;
+      text-align: center;
+      margin-right: 20px;
+      display: inline-block;
+    }
+    span {
+      width: 100px;
+      display: inline-block;
+    }
+  }
+}
+
+.result-info-title {
+  > li {
+    float: left;
+    font-size: 1.2em;
+    margin-right: 90px;
+  }
+  li:nth-of-type(3){
+    margin-right: 83px;
+  }
+}
+
+.result-one {
+  overflow: hidden;
+  border-bottom: 1px solid #eee;
+  li {
+    line-height: 95px;
+    position: relative;
+    display: inline-block;
+  }
+  .result-pro-title,
+  .result-pro-count,
+  .result-pro-price,
+  .result-pro-options,
+  .result-one-pro-supply,
+  .result-one-pro-coupon,
+  .result-one-pro-price {
+    float: left;
+    width: 74px;
+  }
+
+  .result-one-pro-supply,
+  .result-pro-price {
+    font-size: 1.7em;
+    text-align: center;
+  }
+
+  .result-pro-title {
+    width: 278px;
+    box-sizing: border-box;
+    img {
+      width: 55px;
+      height: 55px;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+    h3 {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-left: 20px;
+      display: inline-block;
+    }
+  }
+  .result-pro-count {
+    text-align: center;
+    input {
+      width: 37px;
+      height: 23px;
+      font-size: 1.4em;
+      text-align: center;
+      margin: 0 2px 0 12px;
+    }
+    .result-count-left {
+      @include lr_superscript();
+      cursor: pointer;
+    }
+    .result-count-right {
+      @include lr_superscript(left);
+      cursor: pointer;
+    }
+  }
+  .result-one-pro-price ,
+  .result-one-pro-coupon {
+    font-size: 1.7em;
+    text-align: center;
+  }
+
+  .result-pro-options {
+    width: 25px;
+    height: 95px;
+    overflow: hidden;
+    line-height: 1;
+    > div {
+      height: 50px;
+      @include element_vertical_middle();
+    }
+    .result-one-add,
+    .result-one-delete {
+      height: 20px;
+      display: block;
+      color: #AEA8A8;
+      cursor: pointer;
+      font-size: 1.2em;
+      line-height: 20px;
+      text-align: center;
+    }
+  }
+}
+
+.result-address-select1{
+  @include radius(4px);
+  background-color: #eee;
+}
+
+.result-repertory-empty{
+  background-color: #F9F0F0;
+}
+
+.result-finish {
+  height: 45px;
+  padding: 7px 0;
+  position: relative;
+  margin-bottom: 50px;
+  box-sizing: border-box;
+  a {
+    width: 110px;
+    height: 100%;
+    float: right;
+    font-size: 1.6em;
+    line-height: 32px;
+    text-align: center;
+    display: inline-block;
+    margin: 10px 15px 0 0;
+    color: rgb(142, 141, 141);
+    border: 1px solid rgb(142, 141, 141);
+    @include radius(4px);
+  }
+}

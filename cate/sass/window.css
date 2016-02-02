@@ -1,0 +1,10 @@
+.window_boundingBox {
+  z-index: 99999;
+  position: absolute;
+  background-color: #737375;
+  height: 18px;
+  overflow: hidden;
+  position: relative;
+  background-color: #ddd; }
+
+/*# sourceMappingURL=window.css.map */

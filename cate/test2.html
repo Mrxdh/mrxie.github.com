@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+    <!--<script type="text/javascript" src="js/parallax.min.js"></script>-->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .parallax-window {
+            /*height: 1000px;*/
+            width: 100%;
+        }
+
+        img{
+            width: 100%;
+        }
+
+        .bg3-1 {
+            position: absolute;
+            top: -111px;
+            left: 355px;
+        }
+        .bg3-2 {
+            position: absolute;
+            top: 812px;
+            left: 321px;
+        }
+
+        /* foreground (ballons/landscape) */
+        #parallax-bg3 {
+            z-index: 3;
+            position: fixed;
+            left: 50%; /* align left edge with center of viewport */
+            top: 0;
+            width: 940px;
+            margin-left: -470px; /* move left by half element's width */
+        }
+    </style>
+</head>
+<body>
+<div class="parallax-window bg3-1" id="parallax-bg1"><img src="images/ditu-01.jpg"/></div>
+<div class="parallax-window bg3-2" id="parallax-bg2"><img src="images/ditu-02.jpg"/></div>
+<div class="parallax-window" id="parallax-bg3"><img src="images/ditu-03.jpg"/></div>
+<script>
+    $(window).bind('scroll', function (e) {
+        parallaxScroll();
+    });
+
+    function parallaxScroll() {
+        var scrolled = $(window).scrollTop();
+        console.log((scrolled));
+        $('#parallax-bg1').css('top', (0 - (scrolled * .25)) + 'px');
+        $('#parallax-bg2').css('top', (0 - (scrolled * .5)) + 'px');
+        $('#parallax-bg3').css('top', (0 - (scrolled * 3.75)) + 'px');
+    }
+    console.log("sdfsdfsd@111sd31.com".substr("sdfsdfsd@111sd31.com".indexOf("@")+1));
+
+</script>
+</body>
+</html>

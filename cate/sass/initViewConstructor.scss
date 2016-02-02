@@ -1,0 +1,858 @@
+/*---------------------------------------------------
+ *  页头坐上角标公用模板
+ *---------------------------------------------------*/
+@mixin horizontal-page-width($width: 960px) {
+  width: $width;
+  margin: 0 auto;
+}
+
+/*---------------------------------------------------
+ *  我要找模板
+ *---------------------------------------------------*/
+@mixin want_to_eat(){
+  top: -3px;
+  width: 70px;
+  height: 20px;
+  color: #595959;
+  cursor: pointer;
+  font-size: 1.3em;
+  line-height: 20px;
+  position: relative;
+  text-align: center;
+  @include radius(3px);
+  border: 1px solid #B3B3B3;
+}
+
+/*---------------------------------------------------
+ *  拼音文字模板
+ *---------------------------------------------------*/
+@mixin font_layout($height: 100px,$size:1.5em,$z_size:3.5em,$li_width:50px){
+  width: 100%;
+  height: $height;
+  position: relative;
+  h2 {
+    width: 200px;
+    display: inline-block;
+  }
+  li {
+    float: left;
+    width: $li_width;
+    font-size: $size;
+    text-align: center;
+  }
+  ul{
+    overflow: hidden;
+  }
+  .common-ping {
+    font-weight: normal;
+  }
+  .common-z {
+    li {
+      font-size: $z_size;
+      font-weight: bold;
+    }
+  }
+}
+
+/*---------------------------------------------------
+ *  我要去UL LI 模板
+ *---------------------------------------------------*/
+@mixin place_ul1($top:25px,$height:114px){//114
+  > li {
+    float: left;
+    color: #595959;
+    cursor: pointer;
+    font-size: 1.3em;
+    position: relative;
+    text-align: center;
+    letter-spacing: 10px;
+    box-sizing: border-box;
+    padding: 3px 22px 3px 32px;
+    border-right: 1px solid #C8C8C8;
+  }
+
+  .common-down-ul {
+    left: 2px;
+    top: $top;
+    opacity: 1;
+    width: 95px;
+    z-index: 100;
+    padding: 0 1px;
+    height: $height;
+    overflow: hidden;
+    position: absolute;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .common-down-box{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    @include radius(3px);
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    >ul{
+      overflow: hidden;
+      position: absolute;
+    }
+    li {
+      color: #fff;
+      width: 80px;
+      height: 28px;
+      cursor: pointer;
+      font-size: 0.8em;
+      line-height: 28px;
+      text-align: center;
+      display: inline-block;
+      box-sizing: border-box;
+      letter-spacing: initial;
+      border-bottom: 1px solid #ddd;
+      background-color: rgba(1, 1, 1, 0.3);
+    }
+    li:nth-last-child(1) {
+      border: 0;
+    }
+  }
+
+  span{
+    padding-left: 10px;
+  }
+  > li:last-child {
+    border-right: 0;
+  }
+}
+
+/*---------------------------------------------------
+ *  页头坐上角标公用模板
+ *---------------------------------------------------*/
+@mixin page-header($span_bgx: -1120px, $span_bgy: -254px, $background_imgx: -1002px, $background_imgy: -260px) {
+  > header {
+    top: 0;
+    width: 105px;
+    height: 105px;
+    position: absolute;
+    display: inline-block;
+    @include default_bgimg("../images/background-1.png", $background_imgx $background_imgy);
+    span {
+      width: 100%;
+      height: 75px;
+      display: inline-block;
+      @include default_bgimg("../images/background-1.png", $span_bgx $span_bgy);
+    }
+  }
+}
+
+/*---------------------------------------------------
+ *  抽取产品 UL LI 布局成为模板
+ *---------------------------------------------------*/
+@mixin product-layout1($background_color: rgba(242, 241, 239, 1), $ul_width: 1000%, $ul_position: absolute, $padding: 24px 0 20px 0, $height: 320px, $overflow: hidden, $ul_margin: 0, $li_width: 225px, $h2_height: 187px, $title_span_font_size: 1.5em, $ul_height: 100%,$h3_size: 1.8em) {
+  height: $height;
+  overflow: $overflow;
+  position: relative;
+  background-color: $background_color;
+
+  ul {
+    z-index: 1;
+    left: 135px;
+    width: $ul_width;
+    float: left;
+    height: $ul_height;
+    padding: $padding;
+    margin: $ul_margin;
+    position: $ul_position;
+    box-sizing: border-box;
+    li {
+      float: left;
+      height: 100%;
+      width: $li_width;
+      overflow: hidden;
+      margin-right: 27px;
+      position: relative;
+      @include radius(5px 5px 2px 2px);
+      box-shadow: 1px 1px 2px rgba(1,1,1,0.08);
+    }
+  }
+
+  a {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+  }
+
+  .common-img-info1 {
+    width: 100%;
+    height: $h2_height;
+    overflow: hidden;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      @include default_transition(0.6s, ease-in-out);
+    }
+    span {
+      right: 10px;
+      color: #fff;
+      bottom: 10px;
+      font-weight: 600;
+      position: absolute;
+    }
+    &:hover img {
+      @include scale(1.1, 1.1);
+    }
+  }
+
+  .common-ul-layout1 {
+    padding: 7px 7px 7px 17px;
+    box-sizing: border-box;
+    height: 320-24-20-187px;
+    background-color: rgb(255, 255, 255);
+    h3 {
+      @include default_h2($h3_size);
+    }
+    .common-ul-title-layout1 {
+      display: block;
+      color: #B2ADAD;
+      font-size: $title_span_font_size;
+      margin-top: 4px;
+    }
+    .common-ul-info-layout1 {
+      height: 20px;
+      width: 111px;
+      display: block;
+      margin-top: 7px;
+      cursor: pointer;
+      @include default_bgimg("../images/background-1.png", 0 -133px);
+    }
+  }
+}
+
+/*---------------------------------------------------
+ *  抽取产品footer 布局成为模板
+ *---------------------------------------------------*/
+@mixin product-layout5-footer() {
+  cursor: pointer;
+  margin-top: 10px;
+  text-align: center;
+  position: relative;
+  font-size: $default_font_size1;
+  &:after {
+    @include down_superscript(50%, -6px, 5px, #000);
+  }
+}
+
+/*---------------------------------------------------
+ *  抽取产品分享 布局成为模板
+ *---------------------------------------------------*/
+@mixin product-layout2-share($ul_height: 200px, $ul_overflow: inherit, $li_margin: 6px 12px 0 0) {
+  ul {
+    height: $ul_height;
+    overflow: $ul_overflow;
+  }
+  li {
+    float: left;
+    width: 166px;
+    margin: $li_margin;
+    @include radius(3px);
+    background-color: #ddd;
+    aside,
+    img {
+      float: left;
+      @include radius(3px);
+    }
+    aside {
+      width: 75px;
+      height: 96px;
+      padding: 5px;
+      position: relative;
+      display: inline-block;
+      box-sizing: border-box;
+    }
+    h2 {
+      height: 30px;
+      font-size: 1.3em;
+      overflow: hidden;
+    }
+    P {
+      font-size: 0.9em;
+      padding-top: 5px;
+      box-sizing: border-box;
+    }
+    img {
+      width: 90px;
+      height: 96px;
+      cursor: pointer;
+    }
+    h3 {
+      right: 5px;
+      bottom: 5px;
+      font-size: 1.1em;
+      font-weight: bold;
+      position: absolute;
+      color: $default_input_font_color;
+    }
+  }
+}
+
+/*---------------------------------------------------
+ *  抽取产品提问 布局成为模板
+ *---------------------------------------------------*/
+@mixin product-layout3-question() {
+  margin-top: 15px;
+  padding-bottom: 10px;
+  @include radius(3px);
+  background-color: #ddd;
+  li {
+    height: 35px;
+    position: relative;
+    padding: 5px 0 0 5px;
+    box-sizing: border-box;
+    img {
+      height: 100%;
+    }
+    > img,
+    aside,
+    > p {
+      float: left;
+    }
+    aside {
+      cursor: pointer;
+      padding-left: 5px;
+      box-sizing: border-box;
+      p{
+        font-size: $default_font_size1;
+        padding-top: $default_padding_p;
+      }
+    }
+    > p {
+      right: 10px;
+      line-height: 1.5;
+      padding-left: 5px;
+      position: absolute;
+      border-left: 1px solid #bbb;
+    }
+  }
+  li {
+    margin-top: 10px;
+  }
+  li:first-child {
+    margin-top: 0;
+  }
+  h2 {
+    font-size: 1.1em;
+    color: red;
+    span {
+      color: $default_input_font_color;
+    }
+  }
+}
+
+@mixin common_input($back_img_x: -150px, $back_img_y: -14px, $margin_bottom: 40px, $height: 25px, $width: 255px) {
+  width: $width;
+  height: $height;
+  position: relative;
+  display: inline-block;
+  margin-bottom: $margin_bottom;
+  input {
+    top: 45px;
+    border: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 1.3em;
+    text-indent: 2em;
+    background-color: rgba(219, 219, 219, 1);
+  }
+  span {
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    position: absolute;
+    @include default_bgimg("../images/background-1.png", $back_img_x $back_img_y);
+  }
+}
+
+/*---------------------------------------------------
+ *  抽取产品吐槽 布局成为模板
+ *---------------------------------------------------*/
+@mixin product-layout4-spit() {
+  margin-top: 15px;
+  padding-bottom: 10px;
+  li {
+    height: 44px;
+    position: relative;
+    padding: 5px 0 0 5px;
+    box-sizing: border-box;
+    img {
+      width: 30px;
+      height: 30px;
+    }
+    aside,
+    img {
+      float: left;
+    }
+    aside {
+      width: 305px;
+      cursor: pointer;
+      padding-left: 5px;
+      box-sizing: border-box;
+    }
+    p{
+      font-size: $default_font_size1;
+      padding-top: $default_padding_p;
+    }
+  }
+  li {
+    margin-top: 10px;
+  }
+  li:first-child {
+    margin-top: 0;
+  }
+  h2 {
+    font-size: 1.1em;
+    color: red;
+    position: relative;
+    span {
+      color: $default_input_font_color;
+    }
+    time {
+      right: 0;
+      color: #A0A0A0;
+      position: absolute;
+    }
+  }
+  footer {
+    margin-top: 0;
+  }
+}
+
+/*---------------------------------------------------
+ *  抽取产品 主题数 回复数 header
+ *---------------------------------------------------*/
+@mixin product-layout5(){
+  bottom: 0;
+  right: 15px;
+  height: 145px;
+  position: absolute;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+  >h2{
+    top: -25px;
+    z-index: 89;
+    width: 100%;
+    height: 35px;
+    position: absolute;
+    display: inline-block;
+  }
+  > h2 > div{
+    right: 0;
+    top: 3px;
+    height: 22px;
+    width: 200px;
+    position: absolute;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.6);
+    h2,h3{
+      width: 50%;
+      color: #fff;
+      float: left;
+      height: 100%;
+      padding: 5px 0 0 20px;
+      display: inline-block;
+      box-sizing: border-box;
+    }
+    &:after{
+      @include left_superscript();
+    }
+  }
+}
+
+/*---------------------------------------------------
+ *  抽取产品 模拟Table
+ *---------------------------------------------------*/
+@mixin product-layou6-table($margin_right:-400px,$ul_background: inherit,$il1_color: rgba(191, 73, 75, 1),$il2_background:rgba(43, 16, 17, 0.8)){
+  width: 100%;
+  height: 100%;
+  padding-left: 50px;
+  line-height: 125px;
+  display: inline-block;
+  box-sizing: border-box;
+  margin-right: $margin_right;
+  > ul {
+    width: 500px;
+    height: 100%;
+    padding: 10px;
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: $ul_background;
+    li {
+      width: 100%;
+      height: 27px;
+      display: block;
+      text-indent: 1em;
+      line-height: 27px;
+      position: relative;
+    }
+  }
+  .common-foot-inline {
+    height: 100%;
+    li {
+      float: left;
+      width: 120px;
+      display: inline-block;
+    }
+  }
+  .common-foot-il1 li, .common-foot-il2 li {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: $il1_color;
+  }
+  .common-foot-il2 {
+    background-color: $il2_background;
+    li {
+      color: #F5F5F5;
+    }
+  }
+  .common-inline-total {
+    width: 15px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    @include default_bgimg("../images/background-1.png", -143px -192px);
+  }
+
+  .common-inline-half {
+    width: 10px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    @include default_bgimg("../images/background-1.png", -143px -192px);
+  }
+}
+
+/*---------------------------------------------------
+ *  页面右侧栏tar
+ *---------------------------------------------------*/
+@mixin common-flex-right {
+  .common-flex {
+    top: 0;
+    right: -71px;
+    height: 100%;
+    z-index: 990;
+    position: fixed;
+    @include default_transition(0.4s);
+    width: $default_right_bar;
+  }
+
+  .common-flex {
+    .common-flex-user {
+      width: 100%;
+      height: 100%;
+      .common-flex-title {
+        width: 40px;
+        float: left;
+        height: 100%;
+        position: relative;
+        display: inline-block;
+        background-color: #fff;
+      }
+      .common-flex-title1,
+      .common-flex-title2 {
+        left: 0;
+        right: 0;
+        height: 180px;
+        display: block;
+        margin: 0 auto;
+        position: absolute;
+      }
+      .common-flex-title1 {
+        top: 9%;
+        @include default_bgimg("../images/background-1.png", -26px -490px);
+      }
+      .common-flex-title2 {
+        bottom: 10%;
+        @include default_bgimg("../images/background-1.png", -90px -490px);
+      }
+      &:after, .common-flex-title, .common-flex-info {
+        @extend .container;
+      }
+    }
+
+    .common-flex-info {
+      float: left;
+      height: 100%;
+      width: 111-40px;
+      position: relative;
+      display: inline-block;
+      > h2, span {
+        display: block;
+        @include element_vertical_middle;
+        bottom: auto;
+      }
+
+      > h2 {
+        top: 8%;
+        width: 55px;
+        height: 16px;
+        @include default_bgimg("../images/background-1.png", -126px -742px);
+      }
+      span {
+        top: 77%;
+        width: 55px;
+        height: 16px;
+        cursor: pointer;
+        @include default_bgimg("../images/background-1.png", -860px -136px);
+      }
+      span:hover{
+        background-position: -786px -136px;
+      }
+    }
+
+    .common-flex-lr,
+    .common-flex-to-top,
+    .common-flex-operate,
+    .common-flex-infouser,
+    .common-flex-to-shopping {
+      @include element_vertical_middle;
+      bottom: auto;
+    }
+
+    .common-flex-lr {
+      top: 35%;
+      li {
+        height: 20px;
+        width: 100%;
+        a {
+          width: 100%;
+          height: 100%;
+          display: inline-block;
+        }
+      }
+      li:first-child {
+        cursor: pointer;
+        a {
+          @include default_bgimg("../images/background-1.png", -623px -745px);
+        }
+      }
+      li:last-child {
+        cursor: pointer;
+        @include default_bgimg("../images/background-1.png", -623px -770px);
+      }
+    }
+
+    .common-flex-to-shopping {
+      top: 67%;
+      height: 35px;
+      cursor: pointer;
+      @include default_bgimg("../images/background-1.png", -176px -745px);
+      strong{
+        top: -5px;
+        right: 12px;
+        width: 15px;
+        color: #fff;
+        height: 15px;
+        text-align: center;
+        border-radius: 50%;
+        line-height: 15px;
+        position: absolute;
+        box-shadow: $default_box_shadow;
+        background-color: rgba(255, 0, 0, 0.7);
+        em{
+
+        }
+      }
+    }
+
+    .common-flex-operate {
+      top: 43%;
+      height: 95px;
+      li {
+        height: 15px;
+        padding: 2px 0;
+        cursor: pointer;
+        position: relative;
+        margin: 0 auto 15px auto;
+        background-color: #fff !important;
+      }
+
+      div {
+        right: 5px;
+        top: -10px;
+        color: red;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        border-radius: 50%;
+        position: absolute;
+        text-align: center;
+        display: inline-block;
+        background-color: #fff;
+        box-shadow: $default_box_shadow;
+      }
+
+      .common-flex-my {
+        background-color: #eee;
+      }
+      .common-flex-save {
+        background-color: #eee;
+      }
+      .common-flex-favorable {
+        background-color: #eee;
+      }
+    }
+
+    .common-flex-my {
+      h2 {
+        height: 100%;
+        @include default_bgimg("../images/background-1.png", -345px -746px);
+      }
+    }
+
+    .common-flex-save {
+      h2 {
+        height: 100%;
+        @include default_bgimg("../images/background-1.png", -414px -747px);
+      }
+    }
+
+    .common-flex-favorable {
+      h2 {
+        height: 100%;
+        @include default_bgimg("../images/background-1.png", -481px -747px);
+      }
+    }
+
+    .common-flex-infouser {
+      top: 15%;
+      height: 115px;
+      .main-ifus {
+        margin-bottom: 8px;
+      }
+
+      &:after, ul, ul li {
+        @extend .container;
+      }
+    }
+
+    .common-flex-to-top {
+      top: 87%;
+      height: 50px;
+      cursor: pointer;
+      @include default_bgimg("../images/background-1.png", -551px -745px);
+    }
+
+    .common-flex-ifus1 {
+      cursor: pointer;
+      .common-flex-infouser1 {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto;
+        display: block;
+        border-radius: 50%;
+        background-color: #ddd;
+      }
+      .common-flex-username {
+        margin-top: 4px;
+        text-align: center;
+      }
+    }
+    .common-flex-ifus2 {
+      h2 {
+        color: red;
+        font-size: 1.1em;
+        font-weight: bold;
+        text-align: center;
+      }
+      ul {
+        margin-top: 2px;
+        text-align: center;
+        li {
+          width: 12px;
+          height: 12px;
+          display: inline-block;
+        }
+        .common-flex-lv1 {
+          @include default_bgimg("../images/background-1.png", -62px -742px);
+        }
+        .common-flex-lv2 {
+          @include default_bgimg("../images/background-1.png", -80px -742px);
+        }
+        .common-flex-lv3 {
+          @include default_bgimg("../images/background-1.png", -101px -742px);
+        }
+      }
+    }
+    .common-flex-ifus3 {
+      height: 15px;
+      div {
+        height: 100%;
+        cursor: pointer;
+        @include default_bgimg("../images/background-1.png", -262px -745px);
+      }
+    }
+  }
+
+  .common-flex-backtop {
+    bottom: 11%;
+    left: -100%;
+    position: absolute;
+    img {
+      width: $default_right_bar;
+      height: $default_right_bar;
+      background-color: rgb(173, 173, 173);
+    }
+  }
+}
+
+.common-shade{
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  position: absolute;
+  background-color: rgba(1,1,1,0.3);
+  > div{
+    left: 0;
+    right: 0;
+    height: 75%;
+    width: 900px;
+    margin: 0 auto;
+    margin-top: 80px;
+    position: absolute;
+    padding-bottom: 25px;
+    box-sizing: border-box;
+    background-color: #fff;
+  }
+  >div{
+    >footer{
+      right: 5px;
+      bottom: 5px;
+      width: 160px;
+      overflow: hidden;
+      position: absolute;
+    }
+  }
+  .common-shade-close{
+    cursor:pointer;
+  }
+  .common-true-style1,.common-false-style1{
+    float: left;
+    width: 75px;
+    height: 25px;
+    cursor: pointer;
+    line-height: 25px;
+    text-align: center;
+    padding-left: 10px;
+    letter-spacing: 10px;
+    @include radius(4px);
+    box-sizing: border-box;
+    border: 1px solid #B7B7B7;
+  }
+  .common-true-style1{
+  }
+  .common-false-style1{
+    float: right;
+  }
+}
