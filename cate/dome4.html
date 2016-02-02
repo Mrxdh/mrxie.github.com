@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>结单</title>
+    <link rel="stylesheet" type="text/css" href="sass/v2.css"/>
+</head>
+<body>
+<div class="horizontal-container">
+    <h1>爱餐桌,aicanzhuo,homecate,嘉瑶,半成品,餐饮,O2O,中餐标准化,厨房</h1>
+
+    <div class="result-container">
+        <header><span></span></header>
+        <div class="result-address">
+            <div class="error-warning">您的毛血旺已经消失</div>
+            <header>
+                <h2>确认收货地址</h2>
+
+                <div><span></span>管理收货地址</div>
+            </header>
+            <div class="result-address-from">
+                <h2><span></span>寄送至</h2>
+                <ul>
+                    <li class="result-address-select">
+                        <input type="radio" name="result-address" checked/><span>北京市朝阳区Soho现代城1楼张三丰收 12123132</span>
+
+                        <h3>默认收货地址</h3><strong>修改本地址</strong>
+                    </li>
+                    <li>
+                        <input type="radio" name="result-address"/><span>北京市朝阳区Soho现代城1楼张三丰收</span>
+
+                        <h3>设置为默认收货地址</h3>
+                    </li>
+                    <li>
+                        <input type="radio" name="result-address"/><span>北京市朝阳区Soho现代城1楼张三丰收</span>
+
+                        <h3>设置为默认收货地址</h3>
+                    </li>
+                </ul>
+            </div>
+            <div class="result-address-other">
+                <h3 id="address">使用其他地址</h3>
+            </div>
+            <div class="result-time">
+                <h2><span></span>配送时间</h2>
+                <ul>
+                    <li class="result-money-select">
+                        <input type="radio" checked name="result-time"/><span>仅限周六、日配送</span>
+                    </li>
+                    <li>
+                        <input type="radio" checked="" name="result-time"><span>仅限工作日配送</span>
+                    </li>
+                    <li>
+                        <input type="radio" name="result-time"/><span>任意配送时间（如需指定时间配送，请备注说明）</span>
+                        <textarea placeholder="备注:....."></textarea>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="result-type">
+            <header>
+                <h2>支付方式及配送时间</h2>
+            </header>
+            <div class="result-type-money">
+                <h2><span></span>支付方式</h2>
+                <ul>
+                    <li class="result-money-select">
+                        <input type="radio" name="result-money" checked/><span>网上支付</span>
+                    </li>
+                    <li>
+                        <input type="radio" name="result-money"/><span>货到付款</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="result-invoice">
+            <header class="header_description">
+                <h2>发票信息</h2>
+            </header>
+            <div class="panel-body">
+                不开具发票
+            </div>
+            <footer class="text-right dft_panel">
+                <button class="btn btn-warning" id="setInvoice">修改</button>
+            </footer>
+        </div>
+        <div class="result-info">
+            <header>
+                <h2>确认订单信息</h2>
+                <ul class="result-info-title">
+                    <li>单价</li>
+                    <li>数量</li>
+                    <li>库存</li>
+                    <li>优惠价</li>
+                    <li>合计</li>
+                </ul>
+            </header>
+            <ul class="result-info-ul">
+                <li class="result-repertory-empty">
+                    <ul class="result-one">
+                        <li class="result-pro-title">
+                            <input type="checkbox" checked/>
+                            <img src="images/product_1.png"/>
+
+                            <h3>辣子鸡丁组合</h3>
+                        </li>
+                        <li class="result-pro-price">
+                            ￥<span>68.00</span>
+                        </li>
+                        <li class="result-pro-count">
+                            <span class="result-count-left"></span>
+                            <input type="text" value="1"/>
+                            <span class="result-count-right"></span>
+                        </li>
+                        <li class="result-one-pro-supply">
+                            <span>12</span>
+                        </li>
+                        <li class="result-one-pro-coupon">
+                            ￥<span>68.00</span>
+                        </li>
+                        <li class="result-one-pro-price">
+                            ￥<span>68.00</span>
+                        </li>
+                        <li class="result-pro-options">
+                            <div>
+                                <div class="result-one-delete">删除</div>
+                                <div class="result-one-add">收藏</div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="result-one">
+                        <li class="result-pro-title">
+                            <input type="checkbox" checked/>
+                            <img src="images/product_1.png"/>
+
+                            <h3>辣子鸡丁组合</h3>
+                        </li>
+                        <li class="result-pro-price">
+                            ￥<span>68.00</span>
+                        </li>
+                        <li class="result-pro-count">
+                            <span class="result-count-left"></span>
+                            <input type="text" value="1"/>
+                            <span class="result-count-right"></span>
+                        </li>
+                        <li class="result-one-pro-supply">
+                            <span>12</span>
+                        </li>
+                        <li class="result-one-pro-price">
+                            ￥<span>68.00</span>
+                        </li>
+                        <li class="result-one-pro-coupon">
+                            ￥<span>68.00</span>
+                        </li>
+                        <li class="result-pro-options">
+                            <div>
+                                <div class="result-one-delete">删除</div>
+                                <div class="result-one-add">收藏</div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <footer>
+                <h3>
+                    <span>运费</span>
+                    <span class="result-count">1</span>
+                    <span>优惠</span>
+                    <span class="result-all-money">￥68.00</span>
+                </h3>
+
+                <h3>
+                    <span>总件数</span>
+                    <span class="result-count">1</span>
+                    <span>总金额</span>
+                    <span class="result-all-money">￥68.00</span>
+                </h3>
+            </footer>
+        </div>
+        <div class="result-coupon">
+            <header class="header_description">
+                <h2>优惠券</h2>
+                <small>根据订单详情仅列出了本次购物可用的优惠券</small>
+            </header>
+            <ul class="list-group">
+                <li class="list-group-item">目前无可用优惠券</li>
+            </ul>
+            <div class="text-right">
+                <span class="text-muted span_pad_block">未使用优惠券</span>
+            </div>
+            <footer class="text-center dft_panel">
+                <button class="btn btn-warning" id="bindCoupons">绑定优惠劵</button>
+            </footer>
+        </div>
+        <div class="result-finish"><a href="#">付&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;款</a></div>
+    </div>
+</div>
+<aside class="common-flex">
+    <div class="common-flex-user">
+        <div class="common-flex-title">
+            <div class="common-flex-title1"></div>
+            <div class="common-flex-title2"></div>
+        </div>
+        <div class="common-flex-info">
+            <h2></h2>
+
+            <div class="common-flex-lr">
+                <ul>
+                    <li><a href="#" id="common-flex-lrlogin"></a></li>
+                    <li><a href="#" id="common-flex-lrster"></a></li>
+                </ul>
+            </div>
+            <div class="common-flex-infouser">
+                <ul>
+                    <li class="common-flex-ifus1 main-ifus">
+                        <a>
+                            <div class="common-flex-infouser1"></div>
+                        </a>
+                        <a><h3 class="common-flex-username">用户名</h3></a>
+                    </li>
+                    <li class="common-flex-ifus2 main-ifus">
+                        <h2>行政总厨</h2>
+                        <ul>
+                            <li class="common-flex-lv1"></li>
+                            <li class="common-flex-lv2"></li>
+                            <li class="common-flex-lv3"></li>
+                        </ul>
+                    </li>
+                    <li class="common-flex-ifus3 main-ifus">
+                        <a>
+                            <div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="common-flex-operate">
+                <li class="common-flex-my">
+                    <a><h2></h2></a>
+
+                    <div>12</div>
+                </li>
+                <li class="common-flex-save">
+                    <a><h2></h2></a>
+
+                    <div>13</div>
+                </li>
+                <li class="common-flex-favorable">
+                    <a><h2></h2></a>
+
+                    <div>08</div>
+                </li>
+            </ul>
+            <a>
+                <div class="common-flex-to-shopping">
+                </div>
+            </a>
+            <a href="#"><span id="common-flex-leave"></span></a>
+
+            <div class="common-flex-to-top"></div>
+        </div>
+    </div>
+    <div class="common-flex-backtop">
+        <img src="images/logo2.png" alt="logo"/>
+    </div>
+</aside>
+<script type="text/javascript" src="jquery-2.1.3.js"></script>
+<script type="text/javascript" src="jsUtil.js"></script>
+<script type="text/javascript" src="js/homecate.js"></script>
+<script type="text/javascript" src="js/result.js"></script>
+</body>
+</html>

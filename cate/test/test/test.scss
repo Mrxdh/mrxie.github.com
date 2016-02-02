@@ -1,0 +1,803 @@
+$default_header_height: 50px;
+
+$default_color: #000;
+$default_font_size: 63%;
+$default_color2: #F0F0F0;
+$default_color4: #FBFFF3;
+$default_color3: #F4F4F4;
+$default_color5: #2880D5;
+$default_color1: #FFB3B3;
+$default_font_size1: 1.4em;
+$default_font_size2: 1.3em;
+$default_border_color: #000;
+$default_border_weight: 1px;
+$default_border_style: solid;
+$default_input_font_color: #8D8D8D;
+$default_box_shadow: 1px 1px 1px rgba(1, 1, 1, 0.3);
+$default_box_shadow1: 0px 0px 2px rgba(1, 1, 1, 0.3);
+
+/*---------------------------------------------------
+ *  初始化Css函数
+ *---------------------------------------------------*/
+@mixin set_max {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin clear_fix {
+  content: ".";
+  height: 0;
+  visibility: hidden;
+  display: block;
+  clear: both;
+}
+
+@mixin nac_list {
+  color: #5E5C5C;
+  font-size: 1.4em;
+}
+
+@mixin default_h2($size: 1.8em) {
+  font-size: $size;
+  font-weight: bold;
+}
+
+@mixin default_p($size: 1.1em) {
+  color: #B0ADAD;
+  line-height: 1.5;
+  font-size: $size;
+}
+
+@mixin radius($value: 5px) {
+  border-radius: $value;
+  -moz-border-radius: $value;
+  -webkit-border-radius: $value;
+}
+
+@mixin opacity($value: 1) {
+  opacity: $value;
+  -moz-opacity: $value;
+  -khtml-opacity: $value;
+  filter: alpha(opacity=($value*100));
+}
+
+@mixin rotate($value: -15) {
+  transform: rotate(#{$value}deg);
+  -o-transform: rotate(#{$value}deg);
+  -ms-transform: rotate(#{$value}deg);
+  -moz-transform: rotate(#{$value}deg);
+  -webkit-transform: rotate(#{$value}deg);
+}
+
+@mixin scale($x: 1, $y: 1) {
+  transform: scale(#{$x}, #{$y});
+  -o-transform: scale(#{$x}, #{$y});
+  -ms-transform: scale(#{$x}, #{$y});
+  -moz-transform: scale(#{$x}, #{$y});
+  -webkit-transform: scale(#{$x}, #{$y});
+}
+
+@mixin animation($fun, $time: 5s) {
+  animation: $fun $time;
+  -o-animation: $fun $time;
+  -moz-animation: $fun $time;
+  -webkit-animation: $fun $time;
+}
+
+@mixin botton_backgroung_img($from: #000000, $to: #6C6C6C) {
+  background-image: -webkit-linear-gradient(top, $from 0, $to 100%);
+  background-image: -o-linear-gradient(top, $from 0, $to 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+  background-image: linear-gradient(to bottom, $from 0, $to 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$from', endColorstr='$to', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-repeat: repeat-x;
+  border-color: $to;
+}
+
+/*---------------------------------------------------
+ *  媒体查询 高
+ *---------------------------------------------------*/
+@mixin max-screen($res) {
+  @media only screen and (max-height: $res) {
+    @content;
+  }
+}
+
+/*---------------------------------------------------
+ *  媒体查询 宽
+ *---------------------------------------------------*/
+@mixin max-screen-width($res) {
+  @media only screen and (max-width: $res) {
+    @content;
+  }
+}
+
+/*---------------------------------------------------
+ *  图片
+ *---------------------------------------------------*/
+@mixin parallax_img($width: 125%, $height: 125%) {
+  width: $width;
+  height: $height;
+  position: relative;
+}
+
+/*---------------------------------------------------
+ *  元素居中样式
+ *---------------------------------------------------*/
+@mixin element_vertical_middle {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  position: absolute;
+}
+
+/*---------------------------------------------------
+ *  多行省略
+ *---------------------------------------------------*/
+@mixin text_too_row {
+  content: "...";
+  right: 0;
+  bottom: 0;
+  font-weight: bold;
+  position: absolute;
+  padding: 0 20px 1px 45px;
+  background: url(../images/ellipsis_bg.png) repeat-y;
+}
+
+/*---------------------------------------------------
+ *  transition 样式
+ *---------------------------------------------------*/
+@mixin default_transition($second: 0.2s, $type: ease) {
+  transition: all $second $type;
+  -o-transition: all $second $type;
+  -moz-transition: all $second $type;
+  -webkit-transition: all $second $type;
+}
+
+/*---------------------------------------------------
+ *  默认背景图片
+ *---------------------------------------------------*/
+@mixin default_bgimg($image_url, $position: 0 0) {
+  background: url($image_url) no-repeat $position;
+}
+
+/*---------------------------------------------------
+ *  placeholder 样式
+ *---------------------------------------------------*/
+@mixin default_input_placeholder($color) {
+  input::-webkit-input-placeholder {
+    color: $color !important;
+  }
+  input:-moz-placeholder {
+    color: $color !important;
+  }
+  input::-moz-placeholder {
+    color: $color !important;
+  }
+  input:-ms-input-placeholder {
+    color: $color !important;
+  }
+}
+
+/*---------------------------------------------------
+ *  上角标
+ *---------------------------------------------------*/
+@mixin up_superscript($left: 19px, $bottom: -6px, $size: 5px, $color: $default_input_font_color) {
+  left: $left;
+  content: '';
+  bottom: $bottom;
+  position: absolute;
+  margin-left: -$size;
+  border-bottom: $size solid $color;
+  border-left: $size solid transparent;
+  border-right: $size solid transparent;
+}
+
+/*---------------------------------------------------
+ *  下角标
+ *---------------------------------------------------*/
+@mixin down_superscript($left: 19px, $bottom: -4px, $size: 5px, $color: #eee) {
+  left: $left;
+  content: '';
+  bottom: $bottom;
+  position: absolute;
+  margin-left: -$size;
+  border-top: $size solid $color;
+  border-left: $size solid transparent;
+  border-right: $size solid transparent;
+}
+
+@mixin left_superscript($left: -10px, $left-width: 10px, $bottom-width: 22px, $background: rgba(0, 0, 0, 0.5)) {
+  top: -3px;
+  left: $left;
+  position: absolute;
+  content: '';
+  border: solid transparent;
+  border-right-width: 0px;
+  border-left-width: $left-width;
+  border-bottom-color: $background;
+  border-bottom-width: $bottom-width;
+}
+
+@mixin right_superscript($top_width: 30px) {
+  top: 0px;
+  right: -6px;
+  position: absolute;
+  content: '';
+  border: solid transparent;
+  border-right-width: 6px;
+  border-bottom-width: 30px;
+  border-top-color: #ddd;
+  border-top-width: $top_width;
+}
+
+/*---------------------------------------------------
+ *  border
+ *---------------------------------------------------*/
+@mixin border($weight: $default_border_weight, $style: $default_border_style, $color: $default_border_color) {
+  border: $weight $style $color;
+}
+
+@mixin hover_left() {
+  @include default_transition(0.5s);
+  &:hover {
+    margin-left: 10px;
+  }
+  &:hover a {
+    color: $default_color5;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  font-size: 63%;
+  font-family: "Microsoft YaHei", tahoma, Arial, Helvetica, sans-serif;
+  -webkit-backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  background-color: #eee;
+}
+
+body, div, p, a, h1, h2, h3, h4, h5, h6, article, ul, li, ol, dl, dt, dd, table, thead, tbody, tfoot, tr, th, td, nav {
+  margin: 0;
+  padding: 0;
+  color: #000;
+}
+
+img {
+  border: 0;
+}
+
+em {
+  font-style: normal;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+a img {
+  border: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+a {
+  color: #2E2934;
+  text-decoration: none;
+  @include default_transition(0.5s);
+  &:hover {
+    color: $default_color5;
+  }
+}
+
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+  display: block;
+}
+
+audio, canvas, progress, video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.container {
+  display: block;
+  margin: 0;
+  padding: 0;
+
+  &:before,
+  &:after {
+    @include clear_fix;
+  }
+}
+
+.noneEle {
+  display: none;
+}
+
+.Mrxie_home {
+  width: 90%;
+  margin: 0 auto;
+  font-size: 12px;
+}
+
+.Mrxie_header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  overflow: hidden;
+  z-index: 99999999;
+  background-color: #fff;
+  height: $default_header_height;
+  box-shadow: $default_box_shadow1;
+  @include botton_backgroung_img(#FFFFFF, #E2E2E2);
+  h2 {
+    font-size: 1.4em;
+    font-weight: 100;
+    line-height: 50px;
+    margin-left: 30px;
+    display: inline-block;
+  }
+  &:after {
+    @extend .container;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: #fff !important;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: #7B7B7B;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #6fabec;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #6fabec;
+}
+
+::-webkit-scrollbar-thumb:active {
+  height: 50px;
+  -webkit-border-radius: 2px;
+  background-color: #033367;
+}
+
+::selection {
+  color: white;
+  font-weight: bold;
+  background: #000000;
+}
+
+::-moz-selection {
+  color: white;
+  background: rgb(215,48,48);
+}
+
+::-webkit-selection {
+  color: white;
+  background: rgb(215,48,48);
+}
+
+.import-lab1{
+  @include radius(4px);
+  background-color: #FFFFFF;
+  border: 1px solid #e3e3e3;
+  padding-left: 10px!important;
+}
+
+.title-t1{
+  font-weight: bold;
+  background-color: #ccc;
+  text-indent: 1em!important;
+  font-size: 1.3em!important;
+}
+
+.title-t2{
+  font-weight: bold;
+  background-color: #ddd;
+  text-indent: 1em!important;
+  font-size: 1.2em!important;
+}
+
+#navigator {
+  height: 100%;
+  line-height: $default_header_height;
+  &:after {
+    @extend .container;
+  }
+}
+
+#navList, .blogStats {
+  @include nac_list();
+}
+
+.Mrxie-navList {
+  width: 100px;
+  margin-right: 10px;
+  li {
+    padding: 0 10px;
+  }
+  li:hover {
+    background-color: $default_color3;
+  }
+  &:after {
+    @extend .container;
+  }
+}
+
+.blogStats {
+  font-size: 1.2em;
+}
+
+.headermaintitle {
+  color: inherit !important;
+  img {
+    width: 35px;
+    margin-right: 5px;
+    vertical-align: middle;
+    border: 1px solid #000;
+  }
+}
+
+.c_b_p_desc {
+  line-height: 3 !important;
+  margin-bottom: 10px;
+}
+
+.postTitle {
+  padding: 5px 0;
+  color: #000000;
+  font-size: 24px;
+  @include radius(4px);
+  @include hover_left();
+}
+
+.entrylistPosttitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  @include hover_left();
+}
+
+.dayTitle,
+#google_ad_c1,
+#site_nav_under,
+#opt_under_post,
+#ad_under_post_holder,
+#under_post_news,
+#google_ad_c2,
+#under_post_kb,
+#sidebar_search,
+#sidebar_shortcut,
+#lnkBlogLogo {
+  display: none;
+}
+
+#blogTitle > h1 {
+}
+
+#navList, #navList > li, .blogStats, #blogTitle, #navigator {
+  float: left;
+}
+
+.Mrxie_main {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 40px;
+  margin-top: $default_header_height+5;
+}
+
+.Mrxie_sideBar {
+  width: 10%;
+  float: left;
+  overflow: hidden;
+  text-align: center;
+  display: inline-block;
+  ul {
+    box-shadow: $default_box_shadow1;
+
+    li {
+      padding: 10px 0;
+      background-color: #ddd;
+      border-bottom: 1px solid #eee;
+      a {
+        color: inherit;
+      }
+    }
+
+    li:hover {
+      color: $default_color5;
+      background-color: #fff;
+      font-size: $default_font_size2;
+    }
+  }
+}
+
+#mainContent {
+  width: 90%;
+  float: right;
+  display: inline-block;
+}
+
+#blogTitle {
+  height: 100%;
+  line-height: $default_header_height;
+  margin: 0 20px 0 70px;
+}
+
+.catListTitle {
+  color: #fff;
+  padding: 5px;
+  margin-bottom: 1px;
+  @include radius(4px);
+  box-sizing: border-box;
+  font-size: $default_font_size1;
+  @include botton_backgroung_img();
+  span {
+    font-size: inherit !important;
+  }
+}
+
+.Mrxie_blog_post_info {
+  #green_channel{
+    width: 100%;
+    margin: 10px auto;
+    text-align: center;
+    box-sizing: border-box;
+    a {
+      margin: 0 20px;
+      padding: 10px 20px;
+    }
+  }
+}
+
+#BlogPostCategory {
+  color: #11A000;
+  font-size: 1.1em;
+  text-align: right;
+  a {
+    color: inherit;
+  }
+}
+
+.postCon {
+  margin-top: 20px;
+}
+
+.Mrxie_MySignature {
+  padding: 5px;
+  display: block;
+  color: #BE0808;
+  font-size: 1.2em;
+  text-indent: 2em;
+  letter-spacing: 2px;
+  background-color: #ddd;
+}
+
+.postBody {
+  p {
+    padding: 5px 0;
+    line-height: 1.5;
+    font-size: 1.1em;
+  }
+  .Mrxie_p_img{
+    img{
+      width: 100%;
+      height: inherit;
+    }
+  }
+}
+
+.postDesc {
+  display: block;
+  margin-top: 20px;
+  text-align: right;
+  margin-bottom: 5px;
+  a {
+    margin-left: 5px;
+  }
+}
+
+#sidebar_recentcomments,
+#sidebar_shortcut {
+  display: none;
+}
+
+.Mrxie_footer {
+  left: 0;
+  width: 100%;
+  color: #000;
+  padding: 10px 0;
+  font-size: 1.1em;
+  text-align: center;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: $default_box_shadow1;
+  @include botton_backgroung_img(#FFFFFF, #E2E2E2);
+}
+
+.forFlow {
+  margin: 0 5px 0 15px;
+}
+
+.day {
+  margin-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #B6B6B6;
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.day {
+  padding: 0 5px 0 15px;
+}
+
+.sidebar-block {
+  margin: 0 0 5px 0;
+  box-shadow: $default_box_shadow1;
+}
+
+.menu {
+  @include default_transition(0.5s);
+}
+
+#blogTitle > h1 {
+  color: #000;
+  @include default_transition(0.5s);
+  &:hover {
+    @include rotate(360);
+  }
+}
+
+.smail-img{
+  img{
+    width: 50%;
+  }
+}
+
+.entrylistItem {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #D6D6D6;
+}
+
+.myposts_title,
+.entrylistTitle {
+  margin-bottom: 20px;
+  font-size: 2em !important;
+  text-align: center !important;
+}
+
+#tbCommentBody{
+  width: 100%;
+  height: 200px;
+  border-radius: 4px;
+  border-color: #DDD;
+}
+
+.commentbox_title{
+  overflow: hidden;
+  .commentbox_title_right,
+  .commentbox_title_left{
+    float: none;
+    display: inline-block;
+  }
+}
+
+.commentbox_main{
+  margin-top: 20px;
+}
+
+.feedbackManage {
+  left: -8px;
+  position: relative;
+}
+
+.comment_vote,
+.comment_actions{
+  color: #407AC5;
+  font-size: 1.1em;
+  a{
+    color: inherit;
+  }
+}
+
+.comment_actions {
+  display: inline-block;
+  margin-bottom: 10px!important;
+}
+
+#comment_nav {
+  margin: 10px 0;
+}
+
+#post_next_prev {
+  margin: 30px 0;
+}
+
+.feedbackItem{
+  padding: 10px;
+  margin: 10px 0;
+  @include radius(4px);
+  border: 1px solid #ddd;
+}
+
+.feedbackListSubtitle {
+  margin: 0 0 10px;
+}
+
+@include max-screen-width(600px) {
+  #blog_post_info > div:first-child a {
+    display: block;
+    margin: 10px 20px;
+  }
+  .catListTitle{
+    span{
+      display: none;
+    }
+  }
+  #sideBar{
+    display: none;
+  }
+  #mainContent{
+    width: 100%;
+  }
+  #blogTitle{
+    margin: 0 20px 0 20px;
+  }
+  .Mrxie_home{
+    width: 100% !important;
+  }
+}
+
+.Mrxie-top{
+  height: 68px;
+  width: 35px;
+  right: 10px;
+  bottom: 10px;
+  position: fixed;
+  display: inline-block;
+  background-position: 0 -64px;
+  background-repeat: no-repeat;
+  background-image: url('http://i1.tietuku.com/89a00fd7dd6e985b.png');
+  &:hover{
+    background-position: 0 2px;
+  }
+}
+
+.smail-img2{
+  img{
+    width: 80%;
+  }
+}
+
+
+
+
+

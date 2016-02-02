@@ -1,0 +1,124 @@
+@charset "UTF-8";
+/*---------------------------------------------------
+ *  初始化Css函数
+ *---------------------------------------------------*/
+/*---------------------------------------------------
+ *  媒体查询
+ *---------------------------------------------------*/
+/*---------------------------------------------------
+ *  图片
+ *---------------------------------------------------*/
+/*---------------------------------------------------
+ *  元素居中样式
+ *---------------------------------------------------*/
+/*---------------------------------------------------
+ *  transition 样式
+ *---------------------------------------------------*/
+/*---------------------------------------------------
+ *  默认背景图片
+ *---------------------------------------------------*/
+/*---------------------------------------------------
+ *  placeholder 样式
+ *---------------------------------------------------*/
+/*---------------------------------------------------
+ *  上角标
+ *---------------------------------------------------*/
+/*---------------------------------------------------
+ *  下角标
+ *---------------------------------------------------*/
+/*---------------------------------------------------
+ *  border
+ *---------------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  overflow-x: hidden;
+  font-size: 63%;
+  font-family: "Microsoft YaHei", tahoma, Arial, Helvetica, sans-serif;
+  -webkit-backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  background-color: #eee; }
+
+body, div, p, a, h1, h2, h3, h4, h5, h6, article, ul, li, ol, dl, dt, dd, table, thead, tbody, tfoot, tr, th, td, nav {
+  margin: 0;
+  padding: 0;
+  color: #000; }
+
+img {
+  border: 0; }
+
+em {
+  font-style: normal; }
+
+ol, ul {
+  list-style: none; }
+
+li {
+  list-style-type: none; }
+
+a img {
+  border: none; }
+
+img {
+  vertical-align: top; }
+
+a {
+  color: inherit;
+  text-decoration: none; }
+
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+  display: block; }
+
+audio, canvas, progress, video {
+  display: inline-block;
+  vertical-align: baseline; }
+
+.container, #header:after, #navigator:after, #navList:after {
+  display: block;
+  margin: 0;
+  padding: 0; }
+  .container:before, .container:after, #header:after, #navigator:after, #navList:after {
+    content: ".";
+    height: 0;
+    visibility: hidden;
+    display: block;
+    clear: both; }
+
+.noneEle {
+  display: none; }
+
+#home {
+  width: 90%;
+  margin: 0 auto; }
+
+#header {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  overflow: hidden;
+  background-color: #fff;
+  height: 50px; }
+
+#navigator {
+  height: 100%;
+  line-height: 50px; }
+
+#blogTitle > h2, #lnkBlogLogo {
+  display: none; }
+
+#navList, #navList > li, .blogStats, #blogTitle, #navigator {
+  float: left; }
+
+#main {
+  margin-top: 50px; }
+
+#blogTitle {
+  height: 100%;
+  line-height: 50px;
+  margin: 0 20px 0 70px; }
+
+#blogTitle > h1 {
+  color: #FFB3B3; }

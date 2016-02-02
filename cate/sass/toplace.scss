@@ -1,0 +1,133 @@
+.toplace-container {
+  @include page-header(-385px,-284px,-235px,-266px);
+  section {
+    @include horizontal-page-width(1000px);
+    margin-top: 50px;
+  }
+  margin-bottom: 50px;
+}
+
+.toplace-search {
+  @include common_input(-111px, -14px, 0, 23px, 220px);
+}
+
+.toplace-context{
+  overflow: hidden;
+}
+
+.toplace-section{
+  > header{
+    margin-bottom: 50px;
+    .toplace-search,footer,.toplace-types{
+      float: left;
+    }
+
+    footer,.toplace-types{
+      float: right;
+    }
+
+    footer{
+      @include want_to_eat();
+    }
+
+    &:after, .toplace-search, .toplace-types, footer {
+      @extend .container;
+    }
+  }
+}
+
+.toplace-types{
+  @include place_ul1();
+  border-left: 1px solid #C8C8C8;
+}
+
+//.toplace-types-child{
+//  @include place_ul1_child();
+//}
+
+.toplace-context-left{
+  margin-right: 50px;
+  display: inline-block;
+  header{
+    overflow: hidden;
+    margin-bottom: 40px;
+    h2,h3{
+      float: left;
+    }
+
+    h2{
+      margin-right: 40px;
+    }
+    &:after, h2, h3{
+      @extend .container;
+    }
+  }
+  aside{
+    width: 530px;
+    img{
+      width: 100%;
+      height: 155px;
+    }
+
+    h2,p{
+      background-color: #ddd;
+    }
+
+    p{
+      color: #969696;
+      font-size: 1.2em;
+      line-height: 1.5;
+      padding: 8px 10px 20px 15px;
+    }
+
+    h2{
+      height: 130px;
+      box-sizing: border-box;
+      padding: 25px 10px 0 10px;
+      @include font_layout(70px,1em,2.5em,40px);
+    }
+  }
+}
+
+.toplace-context-left,.toplace-context-right{
+  float: left;
+  &:after{
+    @extend .container;
+  }
+}
+
+.toplace-context-right{
+  float: right;
+  width: 350px;
+  overflow: hidden;
+  background-color: #ddd;
+  box-sizing: border-box;
+  padding: 40px 30px 20px 30px;
+  li{
+    float: left;
+    width: 130px;
+    height: 220px;
+    margin-bottom: 17px;
+    img{
+      height: 130px;
+    }
+  }
+  li:nth-of-type(2n){
+    float: right;
+  }
+  aside{
+    h2,p{
+      margin-top: 5px;
+    }
+    h2{
+      color: #777;
+      font-size: 1.2em;
+    }
+    p{
+      color: #ddd;
+      font-size: 1em;
+      color: #969696;
+      line-height: 1.5;
+    }
+  }
+}
